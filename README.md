@@ -9,7 +9,7 @@ served via a FastAPI backend, with a Streamlit UI for predictions, data
 visualization, and triggering model retraining on newly uploaded data.
 
 ## Video Demo
-🎥 [Watch the demo on YouTube](PASTE_YOUR_YOUTUBE_LINK_HERE)
+
 
 ## Live URL
 - API: https://intel-image-classification-atlz.onrender.com
@@ -58,7 +58,7 @@ pip install -r requirements.txt
 
 ### 3. Run the API
 ```bash
-uvicorn api.main:app --reload
+uvicorn api. main: app-- reload main: app --reload
 ```
 API docs available at `https://intel-image-classification-atlz.onrender.com`
 
