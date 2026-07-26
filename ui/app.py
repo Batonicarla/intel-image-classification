@@ -7,7 +7,7 @@ import seaborn as sns
 from PIL import Image
 import time
 
-API_URL = "http://localhost:8000"  # change to your deployed API URL later
+API_URL = "https://intel-image-classification-atlz.onrender.com"  # change to your deployed API URL later
 
 st.set_page_config(page_title="Intel Scene Classifier", layout="wide")
 
