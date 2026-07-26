@@ -26,7 +26,7 @@ with tab1:
         st.rerun()
 
     try:
-        resp = requests.get(f"{API_URL}/health", timeout=5)
+        resp = requests.get(f"{API_URL}/health", timeout=60)
         if resp.status_code == 200:
             data = resp.json()
             col1, col2, col3 = st.columns(3)
@@ -92,7 +92,7 @@ with tab3:
             with st.spinner("Sending to model..."):
                 files = {"file": (uploaded_file.name, uploaded_file.getvalue(), uploaded_file.type)}
                 try:
-                    resp = requests.post(f"{API_URL}/predict", files=files, timeout=30)
+                    resp = requests.post(f"{API_URL}/predict", files=files, timeout=90)
                     if resp.status_code == 200:
                         result = resp.json()
                         st.success(f"Predicted class: **{result['predicted_class']}**")
@@ -130,10 +130,7 @@ with tab4:
         with st.spinner(f"Uploading {len(bulk_files)} files..."):
             files_payload = [("files", (f.name, f.getvalue(), f.type)) for f in bulk_files]
             try:
-                resp = requests.post(
-                    f"{API_URL}/upload?class_name={class_name}",
-                    files=files_payload,
-                    timeout=60
+                resp = requests.post(f"{API_URL}/retrain?...", timeout=600)
                 )
                 if resp.status_code == 200:
                     st.success(resp.json()["message"])
