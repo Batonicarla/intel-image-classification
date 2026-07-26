@@ -98,16 +98,31 @@ async def upload_data(class_name: str, files: list[UploadFile] = File(...)):
 
 @app.post("/retrain")
 async def trigger_retrain(epochs: int = 5, min_new_images: int = 20):
-    """
-    Triggers retraining using whatever has been uploaded to UPLOAD_DIR so far.
-    Uses the existing model as the pretrained base (not from scratch).
-    """
-    history, retrained = retrain_existing_model(
-        model_path=MODEL_PATH,
-        new_data_dir=UPLOAD_DIR,
-        epochs=epochs,
-        min_new_images=min_new_images
-    )
+    try:
+        history, retrained = retrain_existing_model(
+            model_path=MODEL_PATH,
+            new_data_dir=UPLOAD_DIR,
+            epochs=epochs,
+            min_new_images=min_new_images
+        )
+
+        if not retrained:
+            return {"retrained": False, "message": "Not enough new data to trigger retraining."}
+
+        from src import prediction
+        prediction._cached_model = None
+
+        final_accuracy = history.history.get('accuracy', [None])[-1]
+        final_val_accuracy = history.history.get('val_accuracy', [None])[-1]
+
+        return {
+            "retrained": True,
+            "epochs_run": len(history.history['loss']),
+            "final_train_accuracy": final_accuracy,
+            "final_val_accuracy": final_val_accuracy
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Retraining error: {str(e)}")
 
     if not retrained:
         return {"retrained": False, "message": "Not enough new data to trigger retraining."}
