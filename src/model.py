@@ -60,15 +60,19 @@ def retrain_existing_model(model_path, new_data_dir, epochs=5, min_new_images=20
     print(f"Retraining trigger activated: {total_new} new images found.")
     model = load_trained_model(model_path)
 
-    datagen = ImageDataGenerator(rescale=1./255, validation_split=0.2)
-    train_gen = datagen.flow_from_directory(
-        new_data_dir, target_size=IMG_SIZE, batch_size=16,
-        class_mode='categorical', subset='training'
-    )
-    val_gen = datagen.flow_from_directory(
-        new_data_dir, target_size=IMG_SIZE, batch_size=16,
-        class_mode='categorical', subset='validation'
-    )
+   ALL_CLASSES = ['buildings', 'forest', 'glacier', 'mountain', 'sea', 'street']
+
+datagen = ImageDataGenerator(rescale=1./255, validation_split=0.2)
+train_gen = datagen.flow_from_directory(
+    new_data_dir, target_size=IMG_SIZE, batch_size=16,
+    class_mode='categorical', subset='training',
+    classes=ALL_CLASSES
+)
+val_gen = datagen.flow_from_directory(
+    new_data_dir, target_size=IMG_SIZE, batch_size=16,
+    class_mode='categorical', subset='validation',
+    classes=ALL_CLASSES
+)
 
     model.compile(
         optimizer=tf.keras.optimizers.Adam(learning_rate=learning_rate),
