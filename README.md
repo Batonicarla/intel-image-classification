@@ -12,8 +12,8 @@ visualization, and triggering model retraining on newly uploaded data.
 🎥 [Watch the demo on YouTube](PASTE_YOUR_YOUTUBE_LINK_HERE)
 
 ## Live URL
-- API: [PASTE_URL_IF_DEPLOYED or "Not publicly deployed — run locally, see setup below"]
-- UI: [PASTE_URL_IF_DEPLOYED]
+- API: https://intel-image-classification-atlz.onrender.com
+- UI: https://intel-image-classification-v7qfqm4rdqjypkhqm4pg5e.streamlit.app/
 
 ## Project Structure
 intel-image-classification/
@@ -51,8 +51,8 @@ cd intel-image-classification
 ### 2. Create a virtual environment and install dependencies
 ```bash
 python -m venv venv
-venv\Scripts\activate       # Windows
-source venv/bin/activate    # Mac/Linux
+venv\Scripts\activate       
+source venv/bin/activate    
 pip install -r requirements.txt
 ```
 
@@ -60,13 +60,13 @@ pip install -r requirements.txt
 ```bash
 uvicorn api.main:app --reload
 ```
-API docs available at `http://localhost:8000/docs`
+API docs available at `https://intel-image-classification-atlz.onrender.com`
 
 ### 4. Run the UI (in a separate terminal)
 ```bash
 streamlit run ui/app.py
 ```
-Opens at `http://localhost:8501`
+Opens at `https://intel-image-classification-v7qfqm4rdqjypkhqm4pg5e.streamlit.app/`
 
 ### 5. Run with Docker (containerized API)
 ```bash
@@ -136,5 +136,5 @@ system:
 5. Saves the updated model, replacing the previous version
 
 ## Author
-[Your name]
+Carla BATONI
 African Leadership University — BSE Machine Learning Pipeline Summative
