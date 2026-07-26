@@ -5,16 +5,15 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from PIL import Image
-import time
 
-API_URL = "https://intel-image-classification-atlz.onrender.com"  # change to your deployed API URL later
+API_URL = "https://intel-image-classification-atlz.onrender.com"
 
 st.set_page_config(page_title="Intel Scene Classifier", layout="wide")
 
-st.title("🌍 Intel Image Scene Classification")
+st.title(" Intel Image Scene Classification")
 st.caption("End-to-end ML pipeline — predict, visualize, retrain")
 
-tab1, tab2, tab3, tab4 = st.tabs(["🏠 Status", "📊 Data Insights", "🔮 Predict", "🔁 Upload & Retrain"])
+tab1, tab2, tab3, tab4 = st.tabs([" Status", " Data Insights", " Predict", " Upload & Retrain"])
 
 # ---------------------------------------------------------------
 # TAB 1: Model Up-time / Status
@@ -37,6 +36,8 @@ with tab1:
             st.error(f"API returned status code {resp.status_code}")
     except requests.exceptions.ConnectionError:
         st.error("Could not connect to the API. Make sure it's running at " + API_URL)
+    except requests.exceptions.ReadTimeout:
+        st.warning("The API is waking up (Render free tier cold start). Please wait a moment and click Refresh Status.")
 
 # ---------------------------------------------------------------
 # TAB 2: Data Visualizations
@@ -108,6 +109,8 @@ with tab3:
                         st.error(f"Prediction failed: {resp.text}")
                 except requests.exceptions.ConnectionError:
                     st.error("Could not connect to the API.")
+                except requests.exceptions.ReadTimeout:
+                    st.warning("The API is waking up (Render free tier cold start). Please wait a moment and try again.")
 
 # ---------------------------------------------------------------
 # TAB 4: Bulk Upload + Retrain Trigger
@@ -130,7 +133,10 @@ with tab4:
         with st.spinner(f"Uploading {len(bulk_files)} files..."):
             files_payload = [("files", (f.name, f.getvalue(), f.type)) for f in bulk_files]
             try:
-                resp = requests.post(f"{API_URL}/retrain?...", timeout=600)
+                resp = requests.post(
+                    f"{API_URL}/upload?class_name={class_name}",
+                    files=files_payload,
+                    timeout=120
                 )
                 if resp.status_code == 200:
                     st.success(resp.json()["message"])
@@ -138,6 +144,8 @@ with tab4:
                     st.error(f"Upload failed: {resp.text}")
             except requests.exceptions.ConnectionError:
                 st.error("Could not connect to the API.")
+            except requests.exceptions.ReadTimeout:
+                st.warning("The API is waking up (Render free tier cold start). Please wait a moment and try again.")
 
     st.divider()
 
@@ -165,3 +173,5 @@ with tab4:
                     st.error(f"Retraining failed: {resp.text}")
             except requests.exceptions.ConnectionError:
                 st.error("Could not connect to the API.")
+            except requests.exceptions.ReadTimeout:
+                st.warning("The API is waking up (Render free tier cold start). Please wait a moment and try again.")
