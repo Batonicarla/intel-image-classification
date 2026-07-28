@@ -72,34 +72,8 @@ intel-image-classification/
 
 ├── data/
 
-     ├── train/
-   
-     ├── buildings/
-   
-     ├── forest/
-   
-     ├── glacier/
-   
-     ├── mountain/
-   
-     ├── sea/
-   
-     └── street/
-
-├── test/
-
-    ├── buildings/
-  
-    ├── forest/
-  
-    ├── glacier/
-  
-    ├── mountain/
-  
-    ├── sea/
-  
-    └── street/
-  
+    ├── train/
+    ├── test/ 
     └── retrain_uploads/
 
 └── models/
