@@ -162,15 +162,6 @@ running Docker containers (each an independent instance of the API):
 | container 2 (port 8001) | 25,000–30,000  | 40,000–90,000 | 1.8 | Some, during load spikes |
 | container 3 (port 8002) | 15,000–30,000 | 30,000–70,000 | 3.0 | Some, during load spikes|
 
-### 1 Container
-[1 container results](locust_results/locust_results_1_container.png)
-
-### 2 Containers
-[2 container results](locust_results/locust_results_2_container.png)
-
-### 3 Containers
-[3 container results](locust_results/locust_results_3_container.png)
-
 ## Observations: 
 
 Average response times ranged from roughly 13,000-30,000ms 
@@ -198,4 +189,5 @@ system:
 
 ## Author
 Carla BATONI
-African Leadership University — BSE Machine Learning Pipeline Summative
+African Leadership University 
+ML PIPELINE
