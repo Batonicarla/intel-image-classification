@@ -24,6 +24,8 @@ The API is hosted on Render's free tier, which spins down after
  in the load test results below.
 
 intel-image-classification/
+<img width="230" height="395" alt="image" src="https://github.com/user-attachments/assets/a26d62d3-3100-4d81-b10c-67ba9f4be4b3" />
+
 │
 
 ├── README.md
