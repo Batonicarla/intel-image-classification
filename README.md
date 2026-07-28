@@ -24,58 +24,88 @@ The API is hosted on Render's free tier, which spins down after
  in the load test results below.
 
 intel-image-classification/
+
 ├── README.md
+
 ├── requirements.txt
 
 ├── notebook/
+
    └── intel_image_classification.ipynb
 
 
 ├── src/
+
    ├── preprocessing.py
+   
    ├── model.py
+   
    └── prediction.py
 
 ├── api/
+
   └── main.py
 
 ├── ui/
+
    ├── app.py
+   
    └── requirements.txt
 
 ├── docker/
+
   ├── Dockerfile
+  
   └── requirements-api.txt
 
 ├── locust/
+
   └── locustfile.py
 
 ├── locust_results/
+
    ├── locust_results_1_container.png
+   
    ├── locust_results_2_container.png
+   
    └── locust_results_3_container.png
 
 ├── data/
+
    ├── train/
+   
    ├── buildings/
+   
    ├── forest/
+   
    ├── glacier/
+   
    ├── mountain/
+   
    ├── sea/
+   
    └── street/
 
 ├── test/
+
   ├── buildings/
+  
   ├── forest/
+  
   ├── glacier/
+  
   ├── mountain/
+  
   ├── sea/
+  
   └── street/
   
   └── retrain_uploads/
 
 └── models/
+
     ├── intel_cnn_model.h5
+    
     └── class_indices.json
 
     
