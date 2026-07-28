@@ -9,7 +9,7 @@ served via a FastAPI backend, with a Streamlit UI for predictions, data
 visualization, and triggering model retraining on newly uploaded data.
 
 ## Video Demo
-
+https://go.screenpal.com/watch/cOiuYBnvfAn
 
 ## Live URL
 - API: https://intel-image-classification-atlz.onrender.com
@@ -20,7 +20,7 @@ visualization, and triggering model retraining on newly uploaded data.
 
 The API is hosted on Render's free tier, which spins down after 
  15 minutes of inactivity. The first request may take 30-60 seconds while 
- it wakes up  this also explains some of the response-time variance seen 
+ it wakes up;  this also explains some of the response-time variance seen 
  in the load test results below.
 
 intel-image-classification/
@@ -178,7 +178,7 @@ across the three containers, with 95th percentile response times spiking as
 high as 58,000-90,000ms under peak load. These relatively high latencies are 
 expected given that each container runs TensorFlow CNN inference on CPU only 
 (no GPU acceleration), which is significantly slower under concurrent load 
-than typical lightweight APIs  every `/predict` request requires a full 
+than typical lightweight APIs;  every `/predict` request requires a full 
 forward pass through the MobileNetV2-based model. Some request failures 
 occurred during peak load periods across all three containers, likely due to 
 timeouts under sustained high concurrency combined with CPU-bound inference. 
