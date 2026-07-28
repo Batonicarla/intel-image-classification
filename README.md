@@ -1,4 +1,4 @@
-# Intel Image Scene Classification — ML Pipeline
+# Intel Image Scene Classification  ML Pipeline
 
 ## Project Description
 This project implements an end-to-end machine learning pipeline for classifying
@@ -189,5 +189,7 @@ system:
 
 ## Author
 Carla BATONI
+
 African Leadership University 
-ML PIPELINE
+
+
