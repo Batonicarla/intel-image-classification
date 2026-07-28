@@ -31,82 +31,82 @@ intel-image-classification/
 
 ├── notebook/
 
-   └── intel_image_classification.ipynb
+        └── intel_image_classification.ipynb
 
 
 ├── src/
 
-   ├── preprocessing.py
+       ├── preprocessing.py
    
-   ├── model.py
+       ├── model.py
    
-   └── prediction.py
+       └── prediction.py
 
 ├── api/
 
-  └── main.py
+    └── main.py
 
 ├── ui/
 
-   ├── app.py
+     ├── app.py
    
-   └── requirements.txt
+     └── requirements.txt
 
 ├── docker/
 
-  ├── Dockerfile
+    ├── Dockerfile
   
-  └── requirements-api.txt
+    └── requirements-api.txt
 
 ├── locust/
 
-  └── locustfile.py
+    └── locustfile.py
 
 ├── locust_results/
 
-   ├── locust_results_1_container.png
+     ├── locust_results_1_container.png
    
-   ├── locust_results_2_container.png
+     ├── locust_results_2_container.png
    
-   └── locust_results_3_container.png
+     └── locust_results_3_container.png
 
 ├── data/
 
-   ├── train/
+     ├── train/
    
-   ├── buildings/
+     ├── buildings/
    
-   ├── forest/
+     ├── forest/
    
-   ├── glacier/
+     ├── glacier/
    
-   ├── mountain/
+     ├── mountain/
    
-   ├── sea/
+     ├── sea/
    
-   └── street/
+     └── street/
 
 ├── test/
 
-  ├── buildings/
+    ├── buildings/
   
-  ├── forest/
+    ├── forest/
   
-  ├── glacier/
+    ├── glacier/
   
-  ├── mountain/
+    ├── mountain/
   
-  ├── sea/
+    ├── sea/
   
-  └── street/
+    └── street/
   
-  └── retrain_uploads/
+    └── retrain_uploads/
 
 └── models/
 
-    ├── intel_cnn_model.h5
+     ├── intel_cnn_model.h5
     
-    └── class_indices.json
+     └── class_indices.json
 
     
 ## Setup Instructions
