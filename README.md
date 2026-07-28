@@ -163,15 +163,15 @@ running Docker containers (each an independent instance of the API):
 | container 3 (port 8002) | 15,000–30,000 | 30,000–70,000 | 3.0 | Some, during load spikes|
 
 ### 1 Container
-![1 container results](locust_results/locust_results_1_container.png)
+[1 container results](locust_results/locust_results_1_container.png)
 
 ### 2 Containers
-![2 container results](locust_results/locust_results_2_container.png)
+[2 container results](locust_results/locust_results_2_container.png)
 
 ### 3 Containers
-![3 container results](locust_results/locust_results_3_container.png)
+[3 container results](locust_results/locust_results_3_container.png)
 
-**Observations**: 
+## Observations: 
 
 Average response times ranged from roughly 13,000-30,000ms 
 across the three containers, with 95th percentile response times spiking as 
